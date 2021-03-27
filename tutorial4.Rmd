@@ -7,3 +7,36 @@ output:
     df_print: paged
 keep_md: true
 ---
+```{r global, echo=FALSE }
+knitr::opts_chunk$set(fig.align = "center", fig.path = "figure/")
+```
+
+```{r ,message=FALSE}
+install.packages("tidyverse")
+library(tidyverse)
+library(knitr)
+```
+## learning to reference figures {#figure}
+
+```{r Figref, fig.cap="This is random noise"}
+x = seq(1:100)
+y = rnorm(100)
+dat = data.frame(x, y)
+ggplot(dat, aes(x = x, y = y)) +
+geom_line() 
+```
+In Figure\@ref(fig:Figref), we plot x versus y as line plot. 
+
+## learning to reference table {#table}
+
+```{r tabref}
+knitr::kable(head(dat,5), caption = " this is the first 5 rows")
+```
+
+In table \@ref(tab:tabref), we show first 5 rows of the data.
+
+## Conclusion
+
+In section \@ref(figure), we learn how to reference figures.
+
+while in section \@ref(table),we learn how to reference table.
